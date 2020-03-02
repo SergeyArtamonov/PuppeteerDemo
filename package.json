@@ -1,0 +1,42 @@
+{
+  "name": "puppeteer",
+  "version": "1.0.0",
+  "description": "demo of puppeteer for artamonovserg",
+  "main": "index.js",
+  "dependencies": {
+    "puppeteer-core": "^2.1.1",
+    "puppeteer": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.6",
+    "@types/puppeteer": "^2.0.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^25.1.0",
+    "eslint-plugin-jest": "^23.8.1",
+    "jest": "^25.1.0",
+    "jest-babel": "^1.0.1",
+    "jest-cli": "^25.1.0",
+    "jest-junit": "^10.0.0",
+    "jsdom": "^16.2.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "inhead": "jest --runInBand",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeyArtamonov/PuppeteerDemo.git"
+  },
+  "author": "artamonovserg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergeyArtamonov/PuppeteerDemo/issues"
+  },
+  "homepage": "https://github.com/SergeyArtamonov/PuppeteerDemo#readme"
+}

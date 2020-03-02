@@ -1,0 +1,29 @@
+﻿$ cat .gitignore
+.vs
+
+packages
+\packages
+*.log
+*.csproj.user
+\junit.xml
+\package-lock.json
+
+# include package target files which may be required for msbuild,
+# again prefixing the folder name as needed.
+!packages/*.targets
+!\packages\*.targets
+
+# Excludes files in the LexomiEditor project's LexomiEditor folder and all its subfolders.
+**/typings/
+**/node_modules/
+**/.vscode/
+
+#Exclude binaries
+obj
+bin
+/.idea/jsLibraryMappings.xml
+/.idea/Lexomi.AT.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
