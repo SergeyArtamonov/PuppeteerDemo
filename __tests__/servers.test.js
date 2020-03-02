@@ -14,7 +14,7 @@ beforeAll(async () => {
         args: [`--window-position=0,0`, `--window-size=${Actions.RESOLUTIONS.FHD.w},${Actions.RESOLUTIONS.FHD.h}`],
 		devtools: false
 	});
-	LINK = "https://enterprise.taskworld.com";
+	LINK = CONST.LINKS.northAmerica.login;
 	page = await browser.newPage();
 	
 	await page.goto(LINK);
@@ -45,7 +45,7 @@ describe('Server checks', () => {
         await page.waitFor(CONST.cssSelector.asiaServer);
         await page.click(CONST.cssSelector.asiaServer);
         await page.waitFor(CONST.cssSelector.taskWorldLogo);
-        expect (page.url()).toBe("https://asia-enterprise.taskworld.com/login");
+        expect (page.url()).toBe(CONST.LINKS.asia.login);
     }, TIMEOUT);
 
     it(`${AT_ID} [3] Change server checks - Europe`, async () => {
@@ -55,7 +55,7 @@ describe('Server checks', () => {
         await page.waitFor(CONST.cssSelector.europeServer);
         await page.click(CONST.cssSelector.europeServer);
         await page.waitFor(CONST.cssSelector.taskWorldLogo);
-        expect (page.url()).toBe("https://europe-enterprise.taskworld.com/login");
+        expect (page.url()).toBe(CONST.LINKS.europe.login);
     }, TIMEOUT);
 
     it(`${AT_ID} [4] Change server checks - return to America`, async () => {
@@ -64,7 +64,7 @@ describe('Server checks', () => {
         await page.waitFor(CONST.cssSelector.northAmericaServer);
         await page.click(CONST.cssSelector.northAmericaServer);
         await page.waitFor(CONST.cssSelector.northAmericaServer);
-        expect (page.url()).toBe("https://enterprise.taskworld.com/login");
+        expect (page.url()).toBe(CONST.LINKS.northAmerica.login);
     }, TIMEOUT);
     
 

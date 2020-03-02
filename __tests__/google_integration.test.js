@@ -15,7 +15,7 @@ beforeAll(async () => {
         args: [`--window-position=0,0`, `--window-size=${Actions.RESOLUTIONS.FHD.w},${Actions.RESOLUTIONS.FHD.h}`],
 		devtools: false
 	});
-	LINK = "https://enterprise.taskworld.com";
+	LINK = CONST.LINKS.northAmerica.login;
 	page = await browser.newPage();
 	
 	await page.goto(LINK);

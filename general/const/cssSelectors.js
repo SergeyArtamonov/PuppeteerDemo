@@ -15,6 +15,7 @@ export const cssSelector = {
     'northAmericaServer' : '[data-l10n-message="North America"]',
     'asiaServer' : '[data-l10n-message="Asia"]',
     'europeServer' : '[data-l10n-message="Europe"]',
-    
+    'upgradeButton' : '[data-l10n-key="nav.top.upgrade_button"]',
+    'forgetLink' : '[href="/forgot-password"]'
 
 };

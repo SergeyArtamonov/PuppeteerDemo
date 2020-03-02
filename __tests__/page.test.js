@@ -4,7 +4,7 @@ import * as Actions from '../general/actions/index';
 const TIMEOUT = 40000;
 const puppeteer = require('puppeteer');
 const AT_ID = 'Page';
-let browser, page, LINK;
+let browser, page, LINK, LINK_EU;
 
 beforeAll(async () => {
 	browser = await puppeteer.launch({
@@ -14,7 +14,8 @@ beforeAll(async () => {
         args: [`--window-position=0,0`, `--window-size=${Actions.RESOLUTIONS.FHD.w},${Actions.RESOLUTIONS.FHD.h}`],
 		devtools: false
 	});
-	LINK = "https://enterprise.taskworld.com";
+    LINK = CONST.LINKS.northAmerica.login;
+    LINK_EU = CONST.LINKS.europe.login;
 	page = await browser.newPage();
 	
 	await page.goto(LINK);
@@ -78,6 +79,17 @@ describe('Login page check', () => {
         await page.waitFor(CONST.cssSelector.regEmailInput);
         expect(CONST.cssSelector.regEmailInput).toBeTruthy();
     }, TIMEOUT);
+
+    it(`${AT_ID} [6] check correct user`, async () => {
+        await page.goto(LINK_EU);
+		await page.waitFor(CONST.cssSelector.googleLoginButton);
+        await page.type(CONST.cssSelector.userEmailInput, "reg@artamonovserg.ru");
+        await page.type(CONST.cssSelector.userPasswordInput, "1q2w3eazsxdc");
+        await page.click(CONST.cssSelector.loginButton);
+        await page.waitFor(CONST.cssSelector.upgradeButton);
+        expect(CONST.cssSelector.upgradeButton).toBeTruthy();
+    }, TIMEOUT);
+    // 
     
     it(`${AT_ID} [7] check wrong user`, async () => {
         await page.goto(LINK);
@@ -135,7 +147,7 @@ describe('Login page check', () => {
             .toBe("Please enter your email address.");
     }, TIMEOUT);
 
-    it(`${AT_ID} [11] check signup link and text`, async () => {
+    it(`${AT_ID} [11] check forgot link and text`, async () => {
         await page.goto(LINK);
         await page.waitFor(CONST.cssSelector.forgotPasswordLink);
         expect(CONST.cssSelector.forgotPasswordLink).toBeTruthy();
@@ -143,6 +155,10 @@ describe('Login page check', () => {
             .$eval(CONST.cssSelector.forgotPasswordLink, el => el.innerText)
             .catch(e => console.warn(e)))
             .toBe("Forgot password?");
+        expect(await page
+            .$eval(CONST.cssSelector.forgotPasswordLink, el => el.href)
+            .catch(e => console.warn(e)))
+            .toBe(CONST.LINKS.northAmerica.forgot);
     }, TIMEOUT);    
 
 });
