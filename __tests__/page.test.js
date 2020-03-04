@@ -2,7 +2,6 @@ import * as CONST from '../general/const/index';
 import * as Actions from '../general/actions/index';
 
 const TIMEOUT = 40000;
-const puppeteer = require('puppeteer');
 const AT_ID = 'Page';
 let browser, page, LINK, LINK_EU;
 

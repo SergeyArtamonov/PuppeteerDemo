@@ -3,7 +3,6 @@ import * as Actions from '../general/actions/index';
 
 const TIMEOUT = 40000;
 const AT_ID = 'Google';
-const puppeteer = require('puppeteer');
 
 let browser, page, LINK;
 

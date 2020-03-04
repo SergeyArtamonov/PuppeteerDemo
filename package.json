@@ -19,8 +19,7 @@
     "jest": "^25.1.0",
     "jest-babel": "^1.0.1",
     "jest-cli": "^25.1.0",
-    "jest-junit": "^10.0.0",
-    "jsdom": "^16.2.0"
+    "jest-junit": "^10.0.0"
   },
   "scripts": {
     "test": "jest",
@@ -38,5 +37,20 @@
   "bugs": {
     "url": "https://github.com/SergeyArtamonov/PuppeteerDemo/issues"
   },
-  "homepage": "https://github.com/SergeyArtamonov/PuppeteerDemo#readme"
+  "homepage": "https://github.com/SergeyArtamonov/PuppeteerDemo#readme",
+  "jest": {
+    "setupFiles": [
+      "./setup-jest.js"
+    ],
+    "globals": {},
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }
 }
